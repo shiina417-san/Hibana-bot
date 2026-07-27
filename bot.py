@@ -30,9 +30,6 @@ async def on_message(message):
     if "こんひばな" in message.content.lower():
         await message.channel.send(random.choice(hibana_replies))
 
-    if "えろくない" in message.content.lower():
-    await message.channel.send("正解！")
-
     await bot.process_commands(message)
 
 import os
