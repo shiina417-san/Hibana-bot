@@ -20,7 +20,7 @@ hibana_replies = [
 
 @bot.event
 async def on_ready():
-    print(f"{bot.user} がログインしました！")
+    print(f"{bot.user} がログインしました！ ID:{bot.user.id}")
 
 @bot.event
 async def on_message(message):
