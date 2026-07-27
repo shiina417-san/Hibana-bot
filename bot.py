@@ -1,0 +1,33 @@
+import discord
+from discord.ext import commands
+import random
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix="!", intents=intents)
+
+hibana_replies = [
+    "こんひばな〜！どうどう？元気かな〜？",
+    "こ〜んひ〜ばな〜！今日も楽しそうだね〜！",
+    "こんひばな〜！今日の配信も頑張るよ〜！！",
+    "こんひばな〜！ヒバナーのみんな…ヒバナが居なくて暇だったよね？",
+    "こ〜んひ〜ばな〜！！チャンネル登録、高評価…よろしくね！！",
+    "こんひばな〜！暇人なのかな〜？"
+]
+
+@bot.event
+async def on_ready():
+    print(f"{bot.user} がログインしました！")
+
+@bot.event
+async def on_message(message):
+    if message.author.bot:
+        return
+
+    if message.content.lower() == "こんひばな":
+        await message.channel.send(random.choice(hibana_replies))
+
+    await bot.process_commands(message)
+
+bot.run("YOUR_BOT_TOKEN")
