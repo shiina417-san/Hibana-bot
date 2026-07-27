@@ -30,42 +30,8 @@ async def on_message(message):
     if "こんひばな" in message.content.lower():
         await message.channel.send(random.choice(hibana_replies))
 
-    await bot.process_commands(message)
-
-import os
-
-bot.run(os.environ["DISCORD_TOKEN"])
-
-import discord
-from discord.ext import commands
-import random
-
-intents = discord.Intents.default()
-intents.message_content = True
-
-bot = commands.Bot(command_prefix="!", intents=intents)
-
-import random
-
-hibana_replies = [
-    "それな〜！",
-    "卑猥すぎるとBANされちゃう！",
-    "えっちじゃない！",
-    "それでよし！",
-    "正解！",
-]
-
-@bot.event
-async def on_ready():
-    print(f"{bot.user} がログインしました！")
-
-@bot.event
-async def on_message(message):
-    if message.author.bot:
-        return
-
     if "えろくない" in message.content.lower():
-        await message.channel.send(random.choice(hibana_replies))
+    await message.channel.send("正解！")
 
     await bot.process_commands(message)
 
