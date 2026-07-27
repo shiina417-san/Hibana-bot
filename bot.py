@@ -7,6 +7,8 @@ intents.message_content = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 
+import random
+
 hibana_replies = [
     "こんひばな〜！どうどう？元気かな〜？",
     "こ〜んひ〜ばな〜！今日も楽しそうだね〜！",
@@ -25,7 +27,7 @@ async def on_message(message):
     if message.author.bot:
         return
 
-    if message.content.lower() == "こんひばな":
+    if "こんひばな" in message.content.lower():
         await message.channel.send(random.choice(hibana_replies))
 
     await bot.process_commands(message)
